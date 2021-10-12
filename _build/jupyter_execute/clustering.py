@@ -3,7 +3,7 @@
 
 # # K-Means Clustering
 
-# ### Table of contents
+# From my first analysis of the data in data exploration section, I was interested to see how differnet card selections and different studies related.
 
 # In[1]:
 
@@ -11,8 +11,6 @@
 import pandas as pd
 import numpy as np
 from sklearn.cluster import KMeans
-from sklearn import metrics
-from scipy.spatial.distance import cdist
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -125,6 +123,8 @@ for n in range(2, 21):
     print('N = ' + str(n) + ' Silhouette Score: %.3f' % score)
 
 
+# From looking at the Elbow method, paired with the silhouette score we come to a conclusion about the number of clusters to run.
+
 # From the various methods above the optimal value for K to us used for clustering will be 4
 
 # ### Implementation of the K-means Clustering Process
@@ -206,6 +206,8 @@ df_segm_pca_kmeans["Study_Name"] = df_original["Study_Type"]
 df_segm_pca_kmeans["Study_Name"]
 
 
+# Below is a cluster graph for the studies involved in these experiments
+
 # In[20]:
 
 
@@ -222,6 +224,8 @@ plt.show()
 # They are both part of segments 3 and 4. Both of these studies contained 150 participants.
 
 # From looking at the way the Studies have clustered it is clear to see that they all follow the same pattern
+
+# ### Cluster analysis for Total won/lost
 
 # In[21]:
 
@@ -240,7 +244,9 @@ plt.title("Clusters by Total won/lost")
 plt.show()
 
 
-# From analysing this scatter plot it is clear to see that there is a reduction in total won as component 1 gets bigger
+# From analysing this scatter plot it is clear to see that there is a reduction in total won by the participant as component 1 gets bigger
+
+# ### Cluster analysis for deck selection
 
 # In[23]:
 
@@ -295,6 +301,10 @@ plt.title("Clusters by Selecting deck 4")
 plt.show()
 
 
+# This is a cluster analysis for deck 4. This is the supposed best deck so it is intersting to see that the most successful instances for each study don't pick deck four in comparison to deck 3
+
+# The study most likely to pick deck 4 the most is Steingrover 2011 based on the cluster analysis above.
+
 # This is an example of a cluster made without using the Principal Component analysis.
 # 
 # It is evident that the groups are all mixed together, therefore making it harder to determine any proper findings from the clusters.
@@ -329,3 +339,7 @@ plt.show()
 # From analysing all the cluster graphs above it is clear to see that there are some findings to take away.
 # 
 # When taking into account, totals with the chosen decks, it is expected that decks 3 and 4 would be selected the most for the participants who made the most monet and this is evident in the cluster maps above.
+# 
+# The deck selection and the totals all seem to follow the same trend, with the exception of a few outliers. 
+# 
+# In the data exploration section we saw that deck 2 was the deck that was picked the most out of all the decks. This was very surprising as it was considered to be one of the supposed "bad" decks. From comparing the Total graphs to the times deck 2 was selected it is clear to see that participants who selected this deck the most were clearly punished resulting in total losses overall

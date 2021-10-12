@@ -222,11 +222,6 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#table-of-contents">
-   Table of contents
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pca">
    PCA
   </a>
@@ -239,6 +234,16 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#implementation-of-the-k-means-clustering-process">
    Implementation of the K-means Clustering Process
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cluster-analysis-for-total-won-lost">
+   Cluster analysis for Total won/lost
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cluster-analysis-for-deck-selection">
+   Cluster analysis for deck selection
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -259,15 +264,12 @@
                 
   <div class="section" id="k-means-clustering">
 <h1>K-Means Clustering<a class="headerlink" href="#k-means-clustering" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="table-of-contents">
-<h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<p>From my first analysis of the data in data exploration section, I was interested to see how differnet card selections and different studies related.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
-<span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">cdist</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
@@ -398,7 +400,6 @@
 <img alt="_images/clustering_6_0.png" src="_images/clustering_6_0.png" />
 </div>
 </div>
-</div>
 <div class="section" id="pca">
 <h2>PCA<a class="headerlink" href="#pca" title="Permalink to this headline">¶</a></h2>
 <p>To avoid the curse of dimensionality. The curse of dimensionality is the problem caused by the exponential increase in volume associated with adding extra dimensions to Euclidean space. To avoid this we can perform Principal Component analysis (PCA) to our data frame. This will leave use with an array of components.</p>
@@ -494,16 +495,14 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 2 Silhouette Score: 0.232
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 2 Silhouette Score: 0.231
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 3 Silhouette Score: 0.263
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 4 Silhouette Score: 0.267
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 5 Silhouette Score: 0.283
+N = 5 Silhouette Score: 0.283
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 6 Silhouette Score: 0.284
@@ -515,37 +514,37 @@ $<span class="math notranslate nohighlight">\(
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 8 Silhouette Score: 0.303
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 9 Silhouette Score: 0.308
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 9 Silhouette Score: 0.310
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 10 Silhouette Score: 0.288
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 10 Silhouette Score: 0.287
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 11 Silhouette Score: 0.252
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 11 Silhouette Score: 0.281
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 12 Silhouette Score: 0.260
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 12 Silhouette Score: 0.243
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 13 Silhouette Score: 0.258
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 13 Silhouette Score: 0.256
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 14 Silhouette Score: 0.252
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 14 Silhouette Score: 0.235
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 15 Silhouette Score: 0.241
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 15 Silhouette Score: 0.249
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 16 Silhouette Score: 0.243
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 16 Silhouette Score: 0.234
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 17 Silhouette Score: 0.236
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 17 Silhouette Score: 0.241
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 18 Silhouette Score: 0.242
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 18 Silhouette Score: 0.252
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 19 Silhouette Score: 0.244
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 19 Silhouette Score: 0.231
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 20 Silhouette Score: 0.226
@@ -553,6 +552,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 </div>
+<p>From looking at the Elbow method, paired with the silhouette score we come to a conclusion about the number of clusters to run.</p>
 <p>From the various methods above the optimal value for K to us used for clustering will be 4</p>
 </div>
 <div class="section" id="implementation-of-the-k-means-clustering-process">
@@ -760,7 +760,7 @@ Name: Segment, dtype: int64
   FutureWarning
 </pre></div>
 </div>
-<img alt="_images/clustering_30_1.png" src="_images/clustering_30_1.png" />
+<img alt="_images/clustering_31_1.png" src="_images/clustering_31_1.png" />
 </div>
 </div>
 <p>We can now observe the seperate clusters</p>
@@ -845,6 +845,7 @@ Name: Study_Name, Length: 617, dtype: object
 </div>
 </div>
 </div>
+<p>Below is a cluster graph for the studies involved in these experiments</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_axis</span> <span class="o">=</span> <span class="n">df_segm_pca_kmeans</span><span class="p">[</span><span class="s2">&quot;Component 1&quot;</span><span class="p">]</span>
@@ -861,12 +862,15 @@ Name: Study_Name, Length: 617, dtype: object
   FutureWarning
 </pre></div>
 </div>
-<img alt="_images/clustering_36_1.png" src="_images/clustering_36_1.png" />
+<img alt="_images/clustering_38_1.png" src="_images/clustering_38_1.png" />
 </div>
 </div>
 <p>The first observation to note is that the Steingroever2011 study and Wetzels study are out on their own in the scatter plot.</p>
 <p>They are both part of segments 3 and 4. Both of these studies contained 150 participants.</p>
 <p>From looking at the way the Studies have clustered it is clear to see that they all follow the same pattern</p>
+</div>
+<div class="section" id="cluster-analysis-for-total-won-lost">
+<h2>Cluster analysis for Total won/lost<a class="headerlink" href="#cluster-analysis-for-total-won-lost" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_segm_pca_kmeans</span><span class="p">[</span><span class="s2">&quot;Total_won_vs_lost&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_original</span><span class="p">[</span><span class="s2">&quot;Total&quot;</span><span class="p">]</span>
@@ -890,10 +894,13 @@ Name: Study_Name, Length: 617, dtype: object
   FutureWarning
 </pre></div>
 </div>
-<img alt="_images/clustering_40_1.png" src="_images/clustering_40_1.png" />
+<img alt="_images/clustering_43_1.png" src="_images/clustering_43_1.png" />
 </div>
 </div>
-<p>From analysing this scatter plot it is clear to see that there is a reduction in total won as component 1 gets bigger</p>
+<p>From analysing this scatter plot it is clear to see that there is a reduction in total won by the participant as component 1 gets bigger</p>
+</div>
+<div class="section" id="cluster-analysis-for-deck-selection">
+<h2>Cluster analysis for deck selection<a class="headerlink" href="#cluster-analysis-for-deck-selection" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_segm_pca_kmeans</span><span class="p">[</span><span class="s2">&quot;deck1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_original</span><span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">]</span>
@@ -920,7 +927,7 @@ Name: Study_Name, Length: 617, dtype: object
   FutureWarning
 </pre></div>
 </div>
-<img alt="_images/clustering_43_1.png" src="_images/clustering_43_1.png" />
+<img alt="_images/clustering_47_1.png" src="_images/clustering_47_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -939,7 +946,7 @@ Name: Study_Name, Length: 617, dtype: object
   FutureWarning
 </pre></div>
 </div>
-<img alt="_images/clustering_44_1.png" src="_images/clustering_44_1.png" />
+<img alt="_images/clustering_48_1.png" src="_images/clustering_48_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -958,7 +965,7 @@ Name: Study_Name, Length: 617, dtype: object
   FutureWarning
 </pre></div>
 </div>
-<img alt="_images/clustering_45_1.png" src="_images/clustering_45_1.png" />
+<img alt="_images/clustering_49_1.png" src="_images/clustering_49_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -977,9 +984,11 @@ Name: Study_Name, Length: 617, dtype: object
   FutureWarning
 </pre></div>
 </div>
-<img alt="_images/clustering_46_1.png" src="_images/clustering_46_1.png" />
+<img alt="_images/clustering_50_1.png" src="_images/clustering_50_1.png" />
 </div>
 </div>
+<p>This is a cluster analysis for deck 4. This is the supposed best deck so it is intersting to see that the most successful instances for each study don’t pick deck four in comparison to deck 3</p>
+<p>The study most likely to pick deck 4 the most is Steingrover 2011 based on the cluster analysis above.</p>
 <p>This is an example of a cluster made without using the Principal Component analysis.</p>
 <p>It is evident that the groups are all mixed together, therefore making it harder to determine any proper findings from the clusters.</p>
 <div class="cell docutils container">
@@ -1003,7 +1012,7 @@ Name: Study_Name, Length: 617, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/clustering_49_0.png" src="_images/clustering_49_0.png" />
+<img alt="_images/clustering_55_0.png" src="_images/clustering_55_0.png" />
 </div>
 </div>
 <p>Put total values into bins for examination approx 10 bins</p>
@@ -1014,6 +1023,8 @@ Name: Study_Name, Length: 617, dtype: object
 <p>It allowed me to interpret results easier</p>
 <p>From analysing all the cluster graphs above it is clear to see that there are some findings to take away.</p>
 <p>When taking into account, totals with the chosen decks, it is expected that decks 3 and 4 would be selected the most for the participants who made the most monet and this is evident in the cluster maps above.</p>
+<p>The deck selection and the totals all seem to follow the same trend, with the exception of a few outliers.</p>
+<p>In the data exploration section we saw that deck 2 was the deck that was picked the most out of all the decks. This was very surprising as it was considered to be one of the supposed “bad” decks. From comparing the Total graphs to the times deck 2 was selected it is clear to see that participants who selected this deck the most were clearly punished resulting in total losses overall</p>
 </div>
 </div>
 

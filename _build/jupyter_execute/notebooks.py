@@ -568,7 +568,9 @@ all_data.isna().sum().sum()
 
 # ### Data Analysis comments
 
-# From my initial data we saw that of all the decks picked, deck no 2 was picked the most. It might be interesting to do some clustering on deck no2 for Amount_won, Amount_lost and totals compared to the other decks. Along with deck 2, I would also like to perform cluster analysis on the other decks to see if there are any similarities. 
+# During the data analysis process I was expecting to see some concrete evidence from the studies. Considering all the participants were all deemed to be "healthy" you would assume that they would soon realise the most advantageous were decks 3 and 4. Although it is obvious from the analysis above that this was not the case. It is clear that participants found deck 1 to be the worst deck due to the fact that it was selected the least, it was selected a total of 14.67% of the time. The next least chosen deck was deck no 3. This is surprising due to the fact that it is one of the supposed "good" decks. In my opinion the most surprising aspect of the data analysis was deck two being selected the most of all the decks.
+# 
+# From my initial data we saw that of all the decks picked, deck no 2 was picked the most. It might be interesting to do some clustering on deck no2 for totals compared to the other decks. Along with deck 2, I would also like to perform cluster analysis on the other decks to see if there are any similarities. 
 
 # The final step is to export the cleaned data set for data preparation
 
